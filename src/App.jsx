@@ -7,9 +7,8 @@ import './App.css';
 import CreateArea from './components/CreateArea';
 
 function App() {
-	const ls = localStorage.getItem('keepNotes') || [];
-	console.log(ls);
-	const [noteList, setNoteList] = useState(JSON.parse(ls) || []);
+	const storedNotes = JSON.parse(localStorage.getItem('keepNotes')) || [];
+	const [noteList, setNoteList] = useState(storedNotes);
 
 	function addToNoteList(newNoteObject) {
 		setNoteList((prevNotes) => {
